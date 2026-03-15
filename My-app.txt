@@ -1,0 +1,83 @@
+import pandas as pd
+import uuid
+
+# Function to generate unique IDs
+def generate_id():
+    return str(uuid.uuid4())[:8]/Users/carmen/Desktop/untitled folder
+
+# Sample data generation function
+def generate_sample_data(columns, n=3):
+    data = []
+    for _ in range(n):
+        row = []
+        for col in columns:
+            if 'ID' in col:
+                row.append(generate_id())
+            elif 'Name' in col:
+                row.append(f"Sample {col.split()[0]}")
+            elif 'Email' in col:
+                row.append(f"user{_}@example.com")
+            elif 'Role' in col:
+                row.append('Free')
+            elif 'Date' in col or 'Joined' in col:
+                row.append(pd.Timestamp('2026-03-14'))
+            elif 'Boolean' in col:
+                row.append(True)
+            elif 'File' in col or 'Link' in col:
+                row.append(f"https://example.com/{col.replace(' ','_')}_{_}.jpg")
+            elif 'Percentage' in col:
+                row.append(50)
+            else:
+                row.append(f"Sample {col}")
+        data.append(row)
+    return pd.DataFrame(data, columns=columns)
+
+# Define columns for each table based on schema above
+
+tables_columns = {
+    'Users': [
+        'User ID','Full Name','Email','Password','Role','Profile Picture','Date Joined',
+        'Last Active','Subscription Status','Archetype','Identity Signals','Saved Reports',
+        'Timeline Entries','Social Share Enabled','Notes'
+    ],
+    'Photos': [
+        'Photo ID','User ID','Image File','Caption','Date Taken','Location','Detected Objects',
+        'Emotion Score','Signal Type','Pattern Group','Context Notes','Mirror Evidence'
+    ],
+    'Patterns': [
+        'Pattern ID','User ID','Pattern Name','Photos','Pattern Type','Frequency',
+        'Archetype Signal','Notes','Mirror Evidence'
+    ],
+    'Archetypes': [
+        'Archetype ID','Name','Dominant Signals','Description','Strengths',
+        'Thriving Environments','AI Prompt Mapping','Sample Photos','Notes'
+    ],
+    'Identity Signals': [
+        'Signal ID','User ID','Signal Type','Percentage','Photos','Patterns','Notes'
+    ],
+    'Reports': [
+        'Report ID','User ID','Archetype','Identity Signals','Strengths',
+        'Thriving Environments','Mirror Evidence','Photos Analyzed','Generated Date',
+        'PDF Export','Shared Publicly'
+    ],
+    'Mirror Questions': [
+        'Question ID','Question Text','Step Number','User Response','Related Photos',
+        'Related Pattern','Notes'
+    ],
+    'Timeline': [
+        'Entry ID','User ID','Date','Archetype','Identity Signals','Notes','Photos','Mirror Evidence'
+    ],
+    'Options': [
+        'Option ID','Option Name','Option Type','Applicable Table','Notes'
+    ],
+    'AI Analysis Log': [
+        'Analysis ID','User ID','Photos','AI Step','Status','Generated Archetype','Identity Scores','Notes'
+    ]
+}
+
+# Generate sample CSVs for each table
+for table_name, columns in tables_columns.items():
+    df = generate_sample_data(columns)
+    df.to_csv(f'/mnt/data/{table_name}_Sample.csv', index=False)
+
+"/mnt/data/Users_Sample.csv and other 9 CSVs generated"
