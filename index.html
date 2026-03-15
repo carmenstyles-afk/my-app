@@ -43,9 +43,14 @@ margin-top:10px;
 <h3 id="result"></h3>
 
 <script>
-function analyze(){
-document.getElementById("result").innerText =
-"Signal: Explorer | Emotion: Joy | Insight: You capture discovery moments.";
+async function analyze() {
+
+  const caption = document.querySelector("input[type='text']").value
+  const emotion = document.querySelector("select").value
+
+  document.getElementById("result").innerText =
+  "Signal: Explorer | Emotion: " + emotion + " | Insight: You capture discovery moments.";
+
 }
 </script>
 
