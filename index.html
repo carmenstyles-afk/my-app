@@ -22,9 +22,8 @@ margin-top:10px;
 <body>
 
 <h2>AI Photo Insight</h2>
-
 <label>Upload Photo</label>
-<input type="file">
+<input type="file" id="photoInput" accept="image/*">
 
 <label>Caption</label>
 <input type="text">
@@ -37,6 +36,7 @@ margin-top:10px;
 <option>Calm</option>
 <option>Other</option>
 </select>
+
 
 <button onclick="analyze()">Analyze</button>
 
