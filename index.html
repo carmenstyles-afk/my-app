@@ -43,7 +43,31 @@ margin-top:10px;
 <h3 id="result"></h3>
 
 <script>
-async function analyze() {
+async function analyze(}
+const caption = document.querySelector("input[type='text']").value
+const emotion = document.querySelector("select").value
+const file = document.getElementById("photoInput").files[0]
+
+if (!file) {
+  document.getElementById("result").innerText =
+  "Please upload a photo first."
+  return
+}
+
+document.getElementById("result").innerText =
+"Analyzing your photo..."
+
+const reader = new FileReader()
+
+reader.onload = function() 
+
+  document.getElementById("result").innerText =
+  "Signal: Explorer | Emotion: " + emotion +
+  " | Insight: Your image suggests curiosity and discovery."
+
+}
+
+reader.readAsDataURL(fi) {
 
   const caption = document.querySelector("input[type='text']").value
   const emotion = document.querySelector("select").value
