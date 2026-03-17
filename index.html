@@ -43,7 +43,7 @@ margin-top:10px;
 <h3 id="result"></h3>
 
 <script>
-async function analyze()
+async function analyze() { 
 const caption = document.querySelector("input[type='text']").value
 const emotion = document.querySelector("select").value
 const file = document.getElementById("photoInput").files[0]
@@ -59,7 +59,7 @@ document.getElementById("result").innerText =
 
 const reader = new FileReader()
 
-reader.onload = function() 
+reader.onload = function() {
 
   document.getElementById("result").innerText =
   "Signal: Explorer | Emotion: " + emotion +
@@ -67,7 +67,7 @@ reader.onload = function()
 
 }
 
-reader.readAsDataURL(fi) {
+reader.readAsDataURL(file) {
 
   const caption = document.querySelector("input[type='text']").value
   const emotion = document.querySelector("select").value
